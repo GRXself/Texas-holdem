@@ -36,7 +36,7 @@ namespace TexasHoldem
 
             // DescendCardOrder
             CardsOrderFormatter cardsOrderFormatter = new CardsOrderFormatter();
-            cardsOrderFormatter.DescendCardsOrder(handCards);
+            cardsOrderFormatter.AscendCardsOrder(handCards);
 
             // Judge Cards Level
             LevelJudger levelJudger = new LevelJudger();

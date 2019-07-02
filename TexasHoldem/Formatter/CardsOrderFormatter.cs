@@ -5,15 +5,15 @@ namespace TexasHoldem.Formatter
 {
     public class CardsOrderFormatter
     {
-        public void DescendCardsOrder(HandCard[] handCard)
+        public void AscendCardsOrder(HandCard[] handCard)
         {
             for (int i = 0; i < handCard.Length; i++)
             {
-                DescendCardsOrder(handCard[i]);
+                AscendCardsOrder(handCard[i]);
             }
         }
 
-        public void DescendCardsOrder(HandCard handCard)
+        public void AscendCardsOrder(HandCard handCard)
         {
             MapStringToInt(handCard);
             Array.Sort(handCard.CardValues);
