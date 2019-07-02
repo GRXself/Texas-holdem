@@ -1,5 +1,3 @@
-using System;
-using TexasHoldem.Core;
 using TexasHoldem.Inputs;
 using Xunit;
 

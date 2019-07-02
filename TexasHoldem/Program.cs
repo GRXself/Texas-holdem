@@ -1,6 +1,7 @@
 ﻿using System;
 using TexasHoldem.Comparer;
 using TexasHoldem.Core;
+using TexasHoldem.Formatter;
 using TexasHoldem.Inputs;
 using TexasHoldem.Level;
 using TexasHoldem.Models;
@@ -32,7 +33,11 @@ namespace TexasHoldem
                 string sourceString = Console.ReadLine();
                 handCards[currentPlayer] = sourceInfoTransfer.GetHandCards(sourceString);
             }
-                        
+
+            // DescendCardOrder
+            CardsOrderFormatter cardsOrderFormatter = new CardsOrderFormatter();
+            cardsOrderFormatter.DescendCardsOrder(handCards);
+
             // Judge Cards Level
             LevelJudger levelJudger = new LevelJudger();
             levelJudger.JudgeLevel(handCards);
