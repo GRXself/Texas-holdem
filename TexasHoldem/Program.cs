@@ -1,5 +1,6 @@
 ﻿using System;
 using TexasHoldem.Comparer;
+using TexasHoldem.Core;
 using TexasHoldem.Inputs;
 using TexasHoldem.Level;
 using TexasHoldem.Models;
@@ -10,13 +11,28 @@ namespace TexasHoldem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter you cards: ");
-
             // Get HandCards
-            string sourceString = Console.ReadLine();
             SourceInfoTransfer sourceInfoTransfer = new SourceInfoTransfer();
-            HandCard[] handCards = sourceInfoTransfer.GetHandCards(sourceString);
-            
+            HandCard[] handCards = new HandCard[2];
+            for (int i = 0; i < 2; i++)
+            {
+                int currentPlayer;
+                string currentPlayerName;
+                if (i == 0)
+                {
+                    currentPlayer = Players.Black;
+                    currentPlayerName = nameof(Players.Black);
+                }
+                else
+                {
+                    currentPlayer = Players.White;
+                    currentPlayerName = nameof(Players.White);
+                }
+                Console.WriteLine("Please enter " + currentPlayerName + " player's cards: ");
+                string sourceString = Console.ReadLine();
+                handCards[currentPlayer] = sourceInfoTransfer.GetHandCards(sourceString);
+            }
+                        
             // Judge Cards Level
             LevelJudger levelJudger = new LevelJudger();
             levelJudger.JudgeLevel(handCards);
