@@ -5,7 +5,7 @@ using TexasHoldem.Models;
 
 namespace TexasHoldem.Tests.TestData
 {
-    public class HandCardTestData : IEnumerable<object[]>
+    public class LevelJudgeTestData : IEnumerable<object[]>
     {
         public IEnumerator<object[]> GetEnumerator()
         {

@@ -1,3 +1,4 @@
+using TexasHoldem.Core;
 using TexasHoldem.Level;
 using TexasHoldem.Models;
 using TexasHoldem.Tests.TestData;
@@ -15,8 +16,8 @@ namespace TexasHoldem.Tests.Level
         }
 
         [Theory]
-        [ClassData((typeof(HandCardTestData)))]
-        public void ReturnRightLevel(HandCard handCard, int expectedLevel)
+        [ClassData(typeof(LevelJudgeTestData))]
+        public void ReturnRightLevel(HandCard handCard, Levels expectedLevel)
         {
             _levelJudger.JudgeLevel(handCard);
 
