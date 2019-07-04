@@ -44,45 +44,51 @@ namespace TexasHoldem.Level
                 }
                 else
                 {
-                    int maxCombo = MaxCombo(cardValues);
-                    if (maxCombo == 4)
-                    {
-                        handcard.Level = Levels.FourOfAKind;
-                        return;
-                    }
-                    else if (maxCombo == 3)
-                    {
-                        if (IsFullHouse(cardValues))
-                        {
-                            handcard.Level = Levels.FullHouse;
-                            return;
-                        }
-                        else
-                        {
-                            handcard.Level = Levels.ThreeOfAKind;
-                            return;
-                        }
-                    }
-                    else if (maxCombo == 2)
-                    {
-                        int pairCount = PairCount(cardValues);
-                        if (pairCount == 2)
-                        {
-                            handcard.Level = Levels.TwoPairs;
-                            return;
-                        }
-                        else
-                        {
-                            handcard.Level = Levels.Pair;
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        handcard.Level = Levels.HighCard;
-                        return;
-                    }
+                    HandleNoFlushOrStraightCondition(handcard, cardValues);
+                    return;
                 }
+            }
+        }
+
+        private void HandleNoFlushOrStraightCondition(HandCard handcard, int[] cardValues)
+        {
+            int maxCombo = MaxCombo(cardValues);
+            if (maxCombo == 4)
+            {
+                handcard.Level = Levels.FourOfAKind;
+                return;
+            }
+            else if (maxCombo == 3)
+            {
+                if (IsFullHouse(cardValues))
+                {
+                    handcard.Level = Levels.FullHouse;
+                    return;
+                }
+                else
+                {
+                    handcard.Level = Levels.ThreeOfAKind;
+                    return;
+                }
+            }
+            else if (maxCombo == 2)
+            {
+                int pairCount = PairCount(cardValues);
+                if (pairCount == 2)
+                {
+                    handcard.Level = Levels.TwoPairs;
+                    return;
+                }
+                else
+                {
+                    handcard.Level = Levels.Pair;
+                    return;
+                }
+            }
+            else
+            {
+                handcard.Level = Levels.HighCard;
+                return;
             }
         }
 

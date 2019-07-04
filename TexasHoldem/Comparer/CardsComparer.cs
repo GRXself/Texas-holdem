@@ -28,17 +28,7 @@ namespace TexasHoldem.Comparer
             {
                 if (blackLevel == Levels.ThreeOfAKind || blackLevel == Levels.FullHouse || blackLevel == Levels.FourOfAKind)    // won't be Tie
                 {
-                    const int middleValueIndex = 2;
-                    int blackMiddleValue = handcards[Players.Black].CardValues[middleValueIndex];
-                    int whiteMiddleValue = handcards[Players.White].CardValues[middleValueIndex];
-                    if (blackMiddleValue > whiteMiddleValue)
-                    {
-                        result = nameof(Players.Black) + _commonSameLevelWinString + FormmatIntValueToString(blackMiddleValue);
-                    }
-                    else
-                    {
-                        result = nameof(Players.White) + _commonSameLevelWinString + FormmatIntValueToString(whiteMiddleValue);
-                    }
+                    result = GetNoTieConditionResult(handcards);
                 }
                 else if (blackLevel == Levels.Pair || blackLevel == Levels.TwoPairs)    // deal with pair
                 {
@@ -48,6 +38,24 @@ namespace TexasHoldem.Comparer
                 {
                     result = GetHighCardResult(handcards);
                 }
+            }
+
+            return result;
+        }
+
+        private string GetNoTieConditionResult(HandCard[] handcards)
+        {
+            string result;
+            const int middleValueIndex = 2;
+            int blackMiddleValue = handcards[Players.Black].CardValues[middleValueIndex];
+            int whiteMiddleValue = handcards[Players.White].CardValues[middleValueIndex];
+            if (blackMiddleValue > whiteMiddleValue)
+            {
+                result = nameof(Players.Black) + _commonSameLevelWinString + FormmatIntValueToString(blackMiddleValue);
+            }
+            else
+            {
+                result = nameof(Players.White) + _commonSameLevelWinString + FormmatIntValueToString(whiteMiddleValue);
             }
 
             return result;
