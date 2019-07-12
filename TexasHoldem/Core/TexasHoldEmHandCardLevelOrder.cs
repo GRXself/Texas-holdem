@@ -1,6 +1,6 @@
-namespace TexasHoldem.Core
+namespace TexasHoldEm.Core
 {
-    public enum Levels
+    public enum TexasHoldEmHandCardLevelOrder
     {
         HighCard     ,
         Pair         ,
