@@ -20,7 +20,10 @@ namespace TexasHoldEm.Level
                    !new StraightConditionChecker().IsThisCondition(cards);
         }
 
-        public override void SameLevelCompare(TexasHoldEmPlayer blackPlayer, TexasHoldEmPlayer whitePlayer, TexasGameResult texasGameResult)
+        public override void SameLevelCompare(
+            TexasHoldEmPlayer blackPlayer, 
+            TexasHoldEmPlayer whitePlayer, 
+            TexasGameResult texasGameResult)
         {
             new HighCardConditionComparer().GetCompareResult(blackPlayer, whitePlayer, texasGameResult);
         }

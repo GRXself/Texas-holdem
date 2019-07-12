@@ -10,6 +10,6 @@ namespace TexasHoldEm.Core
         Flush        ,
         FullHouse    ,
         FourOfAKind  ,
-        StraightFlush,
+        StraightFlush
     }
 }

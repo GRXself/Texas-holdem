@@ -1,14 +1,8 @@
-﻿using System;
-using TexasHoldEm.Comparer;
-using TexasHoldEm.Core;
-using TexasHoldEm.Level;
-using TexasHoldEm.Models;
-
-namespace TexasHoldEm
+﻿namespace TexasHoldEm
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             TexasGameHost.TexasGameRun();
         }

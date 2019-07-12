@@ -38,7 +38,7 @@ namespace TexasHoldEm.Level.Comparer
             }
         }
 
-        private List<PokerCard> GetPairCards(IReadOnlyList<PokerCard> cards)
+        private static List<PokerCard> GetPairCards(IReadOnlyList<PokerCard> cards)
         {
             var pairsResult = new List<PokerCard>();
             var currentPairCard = cards[0];

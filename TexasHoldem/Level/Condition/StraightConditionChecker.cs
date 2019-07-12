@@ -9,7 +9,7 @@ namespace TexasHoldEm.Level.Condition
         {
             for (var i = 0; i < cards.Count - 1; i++)
             {
-                if (cards[i].Value != (cards[i + 1]).Value - 1)
+                if (cards[i].Value != cards[i + 1].Value - 1)
                 {
                     return false;
                 }

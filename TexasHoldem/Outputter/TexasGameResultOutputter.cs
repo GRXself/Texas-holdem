@@ -7,7 +7,7 @@ namespace TexasHoldEm.Outputter
     {
         public static void GetConsoleOutput(TexasGameResult texasGameResult)
         {
-            const string commonWinString = " wins - ";
+            const string commonPartialWinString = " wins - ";
             
             if (texasGameResult.IsTie)
             {
@@ -15,13 +15,14 @@ namespace TexasHoldEm.Outputter
                 return;
             }
 
+            var commonWinString = texasGameResult.WinnerName + commonPartialWinString + texasGameResult.WinLevel;
             if (string.IsNullOrEmpty(texasGameResult.WinCard))
             {
-                Console.WriteLine(texasGameResult.WinnerName + commonWinString + texasGameResult.WinLevel);
+                Console.WriteLine(commonWinString);
             }
             else
             {
-                Console.WriteLine(texasGameResult.WinnerName + commonWinString + texasGameResult.WinLevel + ": " + texasGameResult.WinCard);
+                Console.WriteLine(commonWinString + ": " + texasGameResult.WinCard);
             }
         }
     }

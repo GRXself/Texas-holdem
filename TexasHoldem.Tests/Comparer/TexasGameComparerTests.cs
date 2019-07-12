@@ -7,13 +7,6 @@ namespace TexasHoldEm.Tests.Comparer
 {
     public class TexasGameComparerTests
     {
-        private TexasGameComparer _comparer;
-
-        public TexasGameComparerTests()
-        {
-            _comparer = new TexasGameComparer();
-        }
-
         [Theory]
         [ClassData(typeof(TexasGameComparerTestData))]
         public void ReturnCompareResultGivenTwoReadyPlayers(
@@ -21,7 +14,7 @@ namespace TexasHoldEm.Tests.Comparer
             TexasHoldEmPlayer whitePlayer,
             TexasGameResult expectedGameResult)
         {
-            var compareResult = _comparer.CompareHandCards(blackPlayer, whitePlayer);
+            var compareResult = TexasGameComparer.CompareHandCards(blackPlayer, whitePlayer);
             Assert.Equal(expectedGameResult.IsTie, compareResult.IsTie);
             Assert.Equal(expectedGameResult.WinLevel, compareResult.WinLevel);
             Assert.Equal(expectedGameResult.WinCard, compareResult.WinCard);

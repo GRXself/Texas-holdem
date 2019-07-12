@@ -3,9 +3,9 @@ using TexasHoldEm.Models;
 
 namespace TexasHoldEm.Comparer
 {
-    public class TexasGameComparer
+    public static class TexasGameComparer
     {
-        public TexasGameResult CompareHandCards(TexasHoldEmPlayer blackPlayer, TexasHoldEmPlayer whitePlayer)
+        public static TexasGameResult CompareHandCards(TexasHoldEmPlayer blackPlayer, TexasHoldEmPlayer whitePlayer)
         {
             var texasGameResult = new TexasGameResult();
 

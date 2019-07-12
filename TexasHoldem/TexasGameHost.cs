@@ -19,7 +19,7 @@ namespace TexasHoldEm
             whitePlayer.HandCards = new HandCards(Console.ReadLine());
 
             // Compare cards
-            var texasGameResult = new TexasGameComparer().CompareHandCards(blackPlayer, whitePlayer);
+            var texasGameResult = TexasGameComparer.CompareHandCards(blackPlayer, whitePlayer);
             TexasGameResultOutputter.GetConsoleOutput(texasGameResult);
         }
     }

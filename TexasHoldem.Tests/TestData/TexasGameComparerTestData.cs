@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TexasHoldEm.Core;
 using TexasHoldEm.Models;
 
 namespace TexasHoldEm.Tests.TestData
@@ -19,7 +18,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("2C 3H 4S 8C AH")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinnerName = "White",
                     WinLevel = "high card",
@@ -36,7 +35,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("2C 3H 4S 8C KH")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinnerName = "Black",
                     WinLevel = "high card",
@@ -53,7 +52,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("2D 3H 5C 9S KH")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinLevel = "high card",
                     IsTie = true
@@ -69,7 +68,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("2D 3H 5C 9S KH")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinnerName = "Black",
                     WinLevel = "straight flush"
@@ -85,7 +84,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("3D 3H 5C 9S KH")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinnerName = "Black",
                     WinLevel = "four of a kind"
@@ -101,7 +100,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("2S 8S AS QS 3S")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinnerName = "Black",
                     WinLevel = "full house"
@@ -117,7 +116,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("3D 3H 5C 9S KH")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinnerName = "Black",
                     WinLevel = "flush"
@@ -133,7 +132,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("3D 3H 5C 9S KH")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinnerName = "Black",
                     WinLevel = "straight"
@@ -149,7 +148,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("3D 3H 5C 9S KH")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinnerName = "Black",
                     WinLevel = "three of a kind"
@@ -165,7 +164,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("3D 3H 5C 9S KH")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinnerName = "Black",
                     WinLevel = "two pairs"
@@ -181,7 +180,7 @@ namespace TexasHoldEm.Tests.TestData
                 {
                     HandCards = new HandCards("2H 3C 5S 9C KD")
                 },
-                new TexasGameResult()
+                new TexasGameResult
                 {
                     WinnerName = "Black",
                     WinLevel = "pair"

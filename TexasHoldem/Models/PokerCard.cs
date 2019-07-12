@@ -7,7 +7,7 @@ namespace TexasHoldEm.Models
     public class PokerCard : IComparable<PokerCard>
     {
         public int Value { get; }
-        public PokerCardColor Color { get; }
+        private PokerCardColor Color { get; }
 
         public PokerCard(string sourceCardString)
         {
@@ -70,19 +70,14 @@ namespace TexasHoldEm.Models
             {
                 case 10:
                     return "T";
-                    break;
                 case 11:
                     return "J";
-                    break;
                 case 12:
                     return "Q";
-                    break;
                 case 13:
                     return "K";
-                    break;
                 case 14:
                     return "Ace";
-                    break;
                 default:
                     throw new InvalidDataException();
             }

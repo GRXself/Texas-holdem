@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TexasHoldEm.Level;
@@ -7,7 +6,7 @@ namespace TexasHoldEm.Models
 {
     public class HandCards
     {
-        public List<PokerCard> Cards = new List<PokerCard>();
+        public readonly List<PokerCard> Cards = new List<PokerCard>();
 
         public HandCards(string inputString)
         {
@@ -32,7 +31,7 @@ namespace TexasHoldEm.Models
                 new ThreeOfAKindLevel(), 
                 new TwoPairsLevel(), 
                 new OnePairLevel(), 
-                new HighCardLevel(), 
+                new HighCardLevel() 
             };
             return allLevels.FirstOrDefault(currentLevel => currentLevel.IsThisLevel(Cards));
         }
