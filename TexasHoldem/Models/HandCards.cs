@@ -21,19 +21,8 @@ namespace TexasHoldEm.Models
 
         public TexasHoldEmHandCardLevel GetHandCardsLevel()
         {
-            var allLevels = new List<TexasHoldEmHandCardLevel>
-            {
-                new StraightFlushLevel(), 
-                new FourOfAKindLevel(),
-                new FullHouseLevel(), 
-                new FlushLevel(), 
-                new StraightLevel(),
-                new ThreeOfAKindLevel(), 
-                new TwoPairsLevel(), 
-                new OnePairLevel(), 
-                new HighCardLevel() 
-            };
-            return allLevels.FirstOrDefault(currentLevel => currentLevel.IsThisLevel(Cards));
+            return TexasHoldEmHandCardLevel.GetAllLevelInstances()
+                .FirstOrDefault(currentLevel => currentLevel.IsThisLevel(Cards));
         }
     }
 }

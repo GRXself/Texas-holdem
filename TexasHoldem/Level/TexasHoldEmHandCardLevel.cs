@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using TexasHoldEm.Models;
 
 namespace TexasHoldEm.Level
@@ -25,5 +27,14 @@ namespace TexasHoldEm.Level
 
         public abstract TexasGameResult GetSameLevelCompareResult(TexasHoldEmPlayer blackPlayer,
             TexasHoldEmPlayer whitePlayer);
+
+        public static IEnumerable<TexasHoldEmHandCardLevel> GetAllLevelInstances()
+        {
+            return Assembly.GetAssembly(typeof(TexasHoldEmHandCardLevel))
+                .GetTypes()
+                .Where(levelClass => levelClass.IsClass && !levelClass.IsAbstract &&
+                                     levelClass.IsSubclassOf(typeof(TexasHoldEmHandCardLevel)))
+                .Select(level => (TexasHoldEmHandCardLevel) Activator.CreateInstance(level));
+        }
     }
 }
