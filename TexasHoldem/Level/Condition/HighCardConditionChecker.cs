@@ -6,7 +6,7 @@ namespace TexasHoldEm.Level.Condition
 {
     public class HighCardConditionChecker : IHandCardsConditionChecker
     {
-        public bool IsThisCondition(IReadOnlyList<PokerCard> cards)
+        public bool IsThisCondition(List<PokerCard> cards)
         {
             return !new StraightConditionChecker().IsThisCondition(cards) &&
                    !new SameColorConditionChecker().IsThisCondition(cards) &&

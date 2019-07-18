@@ -23,9 +23,7 @@ namespace TexasHoldEm.Level
             return Value.CompareTo(other.Value);
         }
 
-        public abstract void SameLevelCompare(
-            TexasHoldEmPlayer blackPlayer, 
-            TexasHoldEmPlayer whitePlayer,
-            TexasGameResult texasGameResult);
+        public abstract TexasGameResult GetSameLevelCompareResult(TexasHoldEmPlayer blackPlayer,
+            TexasHoldEmPlayer whitePlayer);
     }
 }

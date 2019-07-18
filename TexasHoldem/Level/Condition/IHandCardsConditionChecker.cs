@@ -5,6 +5,6 @@ namespace TexasHoldEm.Level.Condition
 {
     public interface IHandCardsConditionChecker
     {
-        bool IsThisCondition(IReadOnlyList<PokerCard> cards);
+        bool IsThisCondition(List<PokerCard> cards);
     }
 }

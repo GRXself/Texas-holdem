@@ -6,7 +6,7 @@ namespace TexasHoldEm.Level.Condition
 {
     public class FourOfAKindConditionChecker : IHandCardsConditionChecker
     {
-        public bool IsThisCondition(IReadOnlyList<PokerCard> cards)
+        public bool IsThisCondition(List<PokerCard> cards)
         {
             return HandCardsMaxSameCountHelper.GetHandCardsMaxSameCount(cards).Equals(4);
         }

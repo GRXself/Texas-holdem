@@ -7,7 +7,5 @@ namespace TexasHoldEm.Models
         public string WinLevel { get; set; }
         
         public string WinCard { get; set; }
-
-        public bool IsTie { get; set; } = false;
     }
 }

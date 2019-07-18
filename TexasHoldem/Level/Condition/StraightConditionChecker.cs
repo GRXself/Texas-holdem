@@ -1,20 +1,14 @@
 using System.Collections.Generic;
+using System.Linq;
 using TexasHoldEm.Models;
 
 namespace TexasHoldEm.Level.Condition
 {
     public class StraightConditionChecker : IHandCardsConditionChecker
     {
-        public bool IsThisCondition(IReadOnlyList<PokerCard> cards)
+        public bool IsThisCondition(List<PokerCard> cards)
         {
-            for (var i = 0; i < cards.Count - 1; i++)
-            {
-                if (cards[i].Value != cards[i + 1].Value - 1)
-                {
-                    return false;
-                }
-            }
-            return true;
+            return cards.All(c => c.Value - cards.IndexOf(c) == cards.FirstOrDefault().Value);
         }
     }
 }

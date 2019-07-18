@@ -8,10 +8,12 @@ namespace TexasHoldEm.Outputter
         public static void GetConsoleOutput(TexasGameResult texasGameResult)
         {
             const string commonPartialWinString = " wins - ";
+
+            const string commonTieString = "Tie";
             
-            if (texasGameResult.IsTie)
+            if (string.IsNullOrEmpty(texasGameResult.WinnerName))
             {
-                Console.WriteLine("Tie");
+                Console.WriteLine(commonTieString);
                 return;
             }
 

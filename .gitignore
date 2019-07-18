@@ -1,0 +1,15 @@
+# ignore configs and settings
+.*
+
+# add .gitignore file back
+!.gitignore
+
+# ignore emacs auto saved files
+*~
+
+# ignore build generated files
+*/bin
+*/obj
+
+# ignore local setting files
+Texas holdem.sln.DotSettings.user

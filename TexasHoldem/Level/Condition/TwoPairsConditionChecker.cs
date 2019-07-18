@@ -6,7 +6,7 @@ namespace TexasHoldEm.Level.Condition
 {
     public class TwoPairsConditionChecker : IHandCardsConditionChecker
     {
-        public bool IsThisCondition(IReadOnlyList<PokerCard> cards)
+        public bool IsThisCondition(List<PokerCard> cards)
         {
             return HandCardsMaxPairCountHelper.GetHandCardsMaxPairCount(cards).Equals(2);
         }

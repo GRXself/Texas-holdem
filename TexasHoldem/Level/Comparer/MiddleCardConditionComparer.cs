@@ -1,30 +1,37 @@
+using System.Linq;
 using TexasHoldEm.Models;
 
 namespace TexasHoldEm.Level.Comparer
 {
     public class MiddleCardConditionComparer : IHandCardsComparer
     {
-        public void GetCompareResult(
-            TexasHoldEmPlayer blackPlayer, 
-            TexasHoldEmPlayer whitePlayer,
-            TexasGameResult texasGameResult)
+        public TexasGameResult GetCompareResult(
+            TexasHoldEmPlayer blackPlayer,
+            TexasHoldEmPlayer whitePlayer)
         {
+            var texasGameResult = new TexasGameResult {WinLevel = new HighCardLevel().Name};
+            
             const int middleValueIndex = 2;
-            
-            var blackPlayerMiddleCard = blackPlayer.HandCards.Cards[middleValueIndex];
-            var whitePlayerMiddleCard = whitePlayer.HandCards.Cards[middleValueIndex];
-            
-            var compareResult = blackPlayerMiddleCard.CompareTo(whitePlayerMiddleCard);
-            if (compareResult > 0)
+
+            var blackPlayerMiddleCard = blackPlayer.HandCards.Cards.ElementAtOrDefault(middleValueIndex);
+            var whitePlayerMiddleCard = whitePlayer.HandCards.Cards.ElementAtOrDefault(middleValueIndex);
+
+            if (blackPlayerMiddleCard != null && whitePlayerMiddleCard != null)
             {
-                texasGameResult.WinnerName = blackPlayer.Name;
-                texasGameResult.WinCard = blackPlayerMiddleCard.ToCardValueString();
+                var compareResult = blackPlayerMiddleCard.CompareTo(whitePlayerMiddleCard);
+                if (compareResult > 0)
+                {
+                    texasGameResult.WinnerName = blackPlayer.Name;
+                    texasGameResult.WinCard = blackPlayerMiddleCard.ToCardValueString();
+                }
+                else
+                {
+                    texasGameResult.WinnerName = whitePlayer.Name;
+                    texasGameResult.WinCard = whitePlayerMiddleCard.ToCardValueString();
+                }
             }
-            else
-            {
-                texasGameResult.WinnerName = whitePlayer.Name;
-                texasGameResult.WinCard = whitePlayerMiddleCard.ToCardValueString();
-            }
+
+            return texasGameResult;
         }
     }
 }

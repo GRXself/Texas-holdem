@@ -1,35 +1,39 @@
+using System.Linq;
 using TexasHoldEm.Models;
 
 namespace TexasHoldEm.Level.Comparer
 {
     public class HighCardConditionComparer : IHandCardsComparer
     {
-        public void GetCompareResult(
-            TexasHoldEmPlayer blackPlayer, 
-            TexasHoldEmPlayer whitePlayer,
-            TexasGameResult texasGameResult)
+        public TexasGameResult GetCompareResult(
+            TexasHoldEmPlayer blackPlayer,
+            TexasHoldEmPlayer whitePlayer)
         {
+            var texasGameResult = new TexasGameResult {WinLevel = new HighCardLevel().Name};
+
+
             var blackPlayerHandCards = blackPlayer.HandCards.Cards;
             var whitePlayerHandCards = whitePlayer.HandCards.Cards;
-            
-            for (var i = blackPlayerHandCards.Count - 1; i > -1; i--)
-            {
-                var compareResult = blackPlayerHandCards[i].CompareTo(whitePlayerHandCards[i]);
-                if (compareResult > 0)
-                {
-                    texasGameResult.WinnerName = blackPlayer.Name;
-                    texasGameResult.WinCard = blackPlayerHandCards[i].ToCardValueString();
-                    return;
-                }
-                if (compareResult < 0)
-                {
-                    texasGameResult.WinnerName = whitePlayer.Name;
-                    texasGameResult.WinCard = whitePlayerHandCards[i].ToCardValueString();
-                    return;
-                }
-            }
 
-            texasGameResult.IsTie = true;
+            var compareResults = blackPlayerHandCards.Zip(whitePlayerHandCards, (black, white) =>
+                black.CompareTo(white)).ToList();
+
+            var blackLargeNumberIndex = compareResults.LastIndexOf(1);
+            var whiteLargeNumberIndex = compareResults.LastIndexOf(-1);
+
+            if (blackLargeNumberIndex > whiteLargeNumberIndex)
+            {
+                texasGameResult.WinnerName = blackPlayer.Name;
+                texasGameResult.WinCard = blackPlayerHandCards.ElementAtOrDefault(blackLargeNumberIndex)?.ToCardValueString();
+            }
+            
+            if (blackLargeNumberIndex < whiteLargeNumberIndex)
+            {
+                texasGameResult.WinnerName = whitePlayer.Name;
+                texasGameResult.WinCard = whitePlayerHandCards.ElementAtOrDefault(whiteLargeNumberIndex)?.ToCardValueString();
+            }
+            
+            return texasGameResult;
         }
     }
 }

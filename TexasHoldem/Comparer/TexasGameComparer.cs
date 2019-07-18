@@ -25,8 +25,7 @@ namespace TexasHoldEm.Comparer
             }
             else
             {
-                texasGameResult.WinLevel = new HighCardLevel().Name;
-                blackPlayerHandCardLevel.SameLevelCompare(blackPlayer, whitePlayer, texasGameResult);
+                texasGameResult = blackPlayerHandCardLevel.GetSameLevelCompareResult(blackPlayer, whitePlayer);
             }
 
             return texasGameResult;

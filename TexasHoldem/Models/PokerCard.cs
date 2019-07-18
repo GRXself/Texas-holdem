@@ -7,7 +7,7 @@ namespace TexasHoldEm.Models
     public class PokerCard : IComparable<PokerCard>
     {
         public int Value { get; }
-        private PokerCardColor Color { get; }
+        public PokerCardColor Color { get; }
 
         public PokerCard(string sourceCardString)
         {

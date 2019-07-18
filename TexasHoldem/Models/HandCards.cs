@@ -21,7 +21,7 @@ namespace TexasHoldEm.Models
 
         public TexasHoldEmHandCardLevel GetHandCardsLevel()
         {
-            TexasHoldEmHandCardLevel[] allLevels =
+            var allLevels = new List<TexasHoldEmHandCardLevel>
             {
                 new StraightFlushLevel(), 
                 new FourOfAKindLevel(),

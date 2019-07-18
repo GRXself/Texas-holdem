@@ -4,9 +4,8 @@ namespace TexasHoldEm.Level.Comparer
 {
     public interface IHandCardsComparer
     {
-        void GetCompareResult(
-            TexasHoldEmPlayer blackPlayer, 
-            TexasHoldEmPlayer whitePlayer,
-            TexasGameResult texasGameResult);
+        TexasGameResult GetCompareResult(
+            TexasHoldEmPlayer blackPlayer,
+            TexasHoldEmPlayer whitePlayer);
     }
 }
