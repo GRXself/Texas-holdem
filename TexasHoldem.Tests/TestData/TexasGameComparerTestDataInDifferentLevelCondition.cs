@@ -136,6 +136,22 @@ namespace TexasHoldEm.Tests.TestData
                     WinLevel = "pair"
                 }
             },
+            new object[] 
+            {
+                new TexasHoldEmPlayer("Black")
+                {
+                    HandCards = new HandCards("2H 3C 5S 9C KD")
+                }, 
+                new TexasHoldEmPlayer("White")
+                {
+                    HandCards = new HandCards("3D 3H 5C 9S KH")
+                },
+                new TexasGameResult
+                {
+                    WinnerName = "White",
+                    WinLevel = "pair"
+                }
+            },
         };
 
         public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();

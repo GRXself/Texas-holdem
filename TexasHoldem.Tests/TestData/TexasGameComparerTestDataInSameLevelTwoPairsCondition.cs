@@ -74,6 +74,23 @@ namespace TexasHoldEm.Tests.TestData
                     WinCard = "3"
                 }
             },
+            new object[] 
+            {
+                new TexasHoldEmPlayer("Black")
+                {
+                    HandCards = new HandCards("3C 3S 4S 4C AH")
+                }, 
+                new TexasHoldEmPlayer("White")
+                {
+                    HandCards = new HandCards("2H 2D 4D 4H KD")
+                },
+                new TexasGameResult
+                {
+                    WinnerName = "Black",
+                    WinLevel = "high card",
+                    WinCard = "3"
+                }
+            },
             
         };
 
