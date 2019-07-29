@@ -18,7 +18,7 @@ namespace TexasHoldEm.Level.Comparer
             var blackPlayerPairCards = GetPairCards(blackPlayerHandCards);
             var whitePlayerPairCards = GetPairCards(whitePlayerHandCards);
 
-            var compareResults = blackPlayerPairCards.Zip(whitePlayerHandCards, (black, white) =>
+            var compareResults = blackPlayerPairCards.Zip(whitePlayerPairCards, (black, white) =>
                 black.CompareTo(white)).ToList();
             
             var blackLargeNumberIndex = compareResults.LastIndexOf(1);
